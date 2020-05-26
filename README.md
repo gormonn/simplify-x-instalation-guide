@@ -9,6 +9,7 @@
 
 ## SMPLify-x
 Just clone SMPLify-x from [repo](https://github.com/vchoutas/smplify-x)
+
 `git clone https://github.com/vchoutas/smplify-x.git`
 
 ## OpenPose

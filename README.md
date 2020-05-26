@@ -1,11 +1,42 @@
 # SIMPLify-x Instalation Guide
 ### Table of contents
+* [CheatSheet](#cheatsheet)
 * [SMPLify-x](#smplify-x)
 * [SMPL-X](#smpl-x)
 * [PyTorch](#pytorch)
 * [VPoser](#vposer)
 * [Homogenus](#homogenus)
 * [OpenPose](#openpose)
+
+## Cheatsheet:
+1. Read this [how-to](https://code.visualstudio.com/docs/python/python-tutorial) to know about working VSCode with python.
+
+2. Before install all requirements in python projects, be careful that you run it on correct `conda envirioment` with needed python version.
+
+3. To install all requirements inside python projects, run:
+
+    `pip install -r requirements.txt`
+
+4. All docker commands will run with `sudo`, or you will create a group (for example to run nodejs script watch.js in simplify-showcase project).
+
+5. To run SMPLify-X:
+    ```
+    python smplifyx/main.py --config cfg_files/fit_smplx.yaml --data_folder FOLDERS/DATA --output_folder FOLDERS/OUTPUT --visualize="False" --model_folder FOLDERS/MODEL --vposer_ckpt FOLDERS/VPOSER --part_segm_fn FOLDERS/smplx_parts_segm.pkl --interpenetration="False"
+    ```
+    * В папке DATA должно быть 2 каталога: `images` и `keypoints`. OpenPose в результате своей работы возвращает 2 файла `[image_name]_rendered.png` и `[image_name]_keypoints.png`.
+        
+        `png` кладем в папку и получаем:
+        
+        `DATA/images/[image_name].png`
+
+        `json` кладем в папку и получаем:
+        
+        `DATA/keypoints/[image_name]_keypoints.json`
+
+        > Обращаю внимание на название файлов. Дело в том, что OpenPose возвращает другие имена. Нет никаких настроек по управлению этим. Поэтому необходимо либо переименовать файлы, как я написал выше, либо поправить скрипт на питоне, который берет эти данные.
+
+    * Каталог `/MODEL` содержит в себе файлы форматов: `npz` и `pkl`. Копируются из `models/smplx` которые вы получаете после установки [SMPL-X](#smpl-x).
+    * Каталог `/OUTPUT` содержит папки: `images`, `meshes`, `results`
 
 ## SMPLify-x
 [go up](#Table-of-contents)

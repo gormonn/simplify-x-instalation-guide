@@ -22,11 +22,10 @@ At first run, docker will download an image.
 ```bash
 sudo docker run -it -v /home/dimon/openposedata/:/openpose/data/ --net=host -e DISPLAY --runtime=nvidia exsidius/openpose
 ```
-If we want sharing files between your system and docker container (for example, processing any media from filesystem), we need to `-v /home/dimon/openposedata/:/openpose/data/`.
-Where:
-* `/home/dimon/openposedata/` is a path to your folder, that you need get access inside docker container.
-* `/openpose/data/` is a path inside docker container, linked to your real folder `/home/dimon/openposedata/`
-* `exsidius/openpose` is a name of downloaded docker image
+> If we want sharing files between your system and docker container (for example, processing any media from filesystem), we need to `-v /home/dimon/openposedata/:/openpose/data/`.
+> Where:
+> * `/home/dimon/openposedata/` is a path to your folder, that you need get access inside docker container.
+> * `/openpose/data/` is a path inside docker container, linked to your real folder `/home/dimon/openposedata/`
 
 
 Processing images:

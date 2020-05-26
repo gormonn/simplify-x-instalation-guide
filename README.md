@@ -1,5 +1,5 @@
 # SIMPLify-x Instalation Guide
-
+### Table of contents
 * [SMPLify-x](#smplify-x)
 * [SMPL-X](#smpl-x)
 * [PyTorch](#pytorch)
@@ -7,19 +7,51 @@
 * [Homogenus](#homogenus)
 * [OpenPose](#openpose)
 
-## SMPLify-x
+## SMPLify-x [go up](#Table-of-contents)
 Just clone SMPLify-x from [repo](https://github.com/vchoutas/smplify-x)
 
 `git clone https://github.com/vchoutas/smplify-x.git`
 
-## PyTorch
+## PyTorch [go up](#Table-of-contents)
 [Link to original](https://pytorch.org/get-started/locally/)
 
 At first we need to install `conda`, just use [this](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) guide.
 
 `conda install pytorch torchvision cudatoolkit=10.2 -c pytorch`
 
-## SMPL-X
+## VPoser [go up](#Table-of-contents)
+[Link to original](https://github.com/nghorbani/human_body_prior)
+**Requirements**
+- Python 3.7
+- [Configer](https://github.com/nghorbani/configer)
+- [PyTorch 1.1.0](https://pytorch.org/get-started/previous-versions/)
+- [Torchgeometry 0.1.2](https://pypi.org/project/torchgeometry/0.1.2/)
+- [Pyrender](https://pyrender.readthedocs.io/en/latest/install/index.html#osmesa) for visualizations
+
+Install from this repository for the latest developments:
+```bash
+pip install git+https://github.com/nghorbani/configer
+pip install git+https://github.com/nghorbani/human_body_prior
+```
+
+**Optional dependencies:**
+
+If you want to use the feature to [Disentangle Self-Intersecting Poses](https://github.com/nghorbani/human_body_prior/tree/master/human_body_prior/body_model#disentangling-self-intersecting-novel-poses)
+please install the optional package [mesh_intersection](https://github.com/vchoutas/torch-mesh-isect).
+
+## Loading Trained Models
+
+To download the trained *VPoser*  models go to the [SMPL-X project website](https://smpl-x.is.tue.mpg.de/) and register to get access to the downloads section. Afterwards, you can follow the [model loading tutorial](notebooks/vposer_poZ.ipynb) to load and use your trained VPoser models.
+
+## Train VPoser
+We train VPoser, using a [variational autoencoder](https://arxiv.org/abs/1312.6114)
+that learns a latent representation of human pose and regularizes the distribution of the latent code to be a normal distribution.
+We train our prior on data from the [AMASS](https://amass.is.tue.mpg.de/) dataset; 
+specifically, the SMPL pose parameters of various publicly available human motion capture datasets. 
+You can follow the [data preparation tutorial](human_body_prior/data/README.md) to learn how to download and prepare AMASS for VPoser.
+Afterwards, you can [train VPoser from scratch](human_body_prior/train/README.md). 
+
+## SMPL-X [go up](#Table-of-contents)
 [Link to original](https://github.com/vchoutas/smplx)
 
 To install the model please follow the next steps in the specified order:
@@ -40,7 +72,7 @@ To download the SMPL+H model go to [this project website](http://mano.is.tue.mpg
 
 To download the SMPL model go to [this](http://smpl.is.tue.mpg.de/) (male and female models) and [this](http://smplify.is.tue.mpg.de/) (gender neutral model) project website and register to get access to the downloads section.
 
-## OpenPose
+## OpenPose [go up](#Table-of-contents)
 To install openPose from docker image:
 1. [Install nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-docker#ubuntu-160418042004-debian-jessiestretchbuster)
 2. [Install nvidia-docker 2.0](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0))
@@ -94,3 +126,5 @@ wget https://github.com/foss-for-synopsys-dwc-arc-processors/synopsys-caffe-mode
 Ваше вновь созданное изображение теперь должно быть доступно в списке локальных изображений. Вы можете проверить, проверив список изображений снова:
 
 `sudo docker images`
+
+[go up](#Table-of-contents)

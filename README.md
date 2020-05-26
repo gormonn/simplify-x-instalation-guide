@@ -21,6 +21,7 @@ At first we need to install `conda`, just use [this](https://docs.conda.io/proje
 
 ## VPoser [go up](#Table-of-contents)
 [Link to original](https://github.com/nghorbani/human_body_prior)
+
 **Requirements**
 - Python 3.7
 - [Configer](https://github.com/nghorbani/configer)

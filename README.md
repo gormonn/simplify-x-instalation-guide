@@ -12,6 +12,9 @@ Just clone SMPLify-x from [repo](https://github.com/vchoutas/smplify-x)
 
 `git clone https://github.com/vchoutas/smplify-x.git`
 
+## SMPL-X
+
+
 ## OpenPose
 To install openPose from docker image:
 1. [Install nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-docker#ubuntu-160418042004-debian-jessiestretchbuster)
@@ -27,15 +30,15 @@ sudo docker run -it -v /home/dimon/openposedata/:/openpose/data/ --net=host -e D
 > * `/home/dimon/openposedata/` is a path to your folder, that you need get access inside docker container.
 > * `/openpose/data/` is a path inside docker container, linked to your real folder `/home/dimon/openposedata/`
 
-
-Processing images:
+Than docker container was started, we can processing images:
 ```bash
  ./build/examples/openpose/openpose.bin --image_dir ./data --display 0 --write_json ./data/result --write_images ./data/result --face --hand
 
 ```
-Сноски и примечания[^1] задаются так[^2]:
 
-Here is the steps, to download COCO (по-умолча) model, and save docker image ([how-to-commit-changes-to-docker-image](https://phoenixnap.com/kb/how-to-commit-changes-to-docker-image)):
+> OpenPose поддерживает 2 типа модели данных COCO (устар. но используется в проекте Videoavatars) и MODEL_25 (кажется, 25. используется в SMPL-X). Поэтому, если требуется COCO, то его необходимо скачать отдельно. И т.к. мы используем контейнер, нам необходимо его изменить сохранить изменения в новый образ.
+
+Here is the steps, to download COCO model, and save docker image ([how-to-commit-changes-to-docker-image](https://phoenixnap.com/kb/how-to-commit-changes-to-docker-image)):
 * run container: `docker run -it --runtime=nvidia exsidius/openpose`
 * install wget: `apt-get install wget`
 * go to folder, and download COCO-model:
@@ -43,17 +46,28 @@ Here is the steps, to download COCO (по-умолча) model, and save docker i
 cd models/pose/coco/
 wget https://github.com/foss-for-synopsys-dwc-arc-processors/synopsys-caffe-models/raw/master/caffe_models/openpose/caffe_model/pose_iter_440000.caffemodel
 ```
-* Как только вы закончите модифицировать новый контейнер, выйдите из него:
+Как только вы закончите модифицировать новый контейнер, выйдите из него:
+
 `exit`
-Предложите системе отобразить список запущенных контейнеров :
+
+Предложите системе отобразить список запущенных контейнеров:
+
 `sudo docker ps -a`
+
 Вам потребуется **идентификатор КОНТЕЙНЕРА**, чтобы сохранить изменения, внесенные в существующее изображение. Скопируйте значение идентификатора из вывода.
-* Наконец, создайте новое изображение, зафиксировав изменения, используя следующий синтаксис:
+
+Наконец, создайте новое изображение, зафиксировав изменения, используя следующий синтаксис:
+
 `sudo docker commit [CONTAINER_ID] [new_image_name]`
+
 Поэтому в нашем примере это будет:
+
 `sudo docker commit c0d4c6800b5d openpose`
+
 Где *c0d4c6800b5d* находится **идентификатор КОНТЕЙНЕРА** и **openpose** имя нового Image.
-* Ваше вновь созданное изображение теперь должно быть доступно в списке локальных изображений. Вы можете проверить, проверив список изображений снова:
+
+Ваше вновь созданное изображение теперь должно быть доступно в списке локальных изображений. Вы можете проверить, проверив список изображений снова:
+
 `sudo docker images`
 
 [^1]: Все сноски отображаются в конце страницы

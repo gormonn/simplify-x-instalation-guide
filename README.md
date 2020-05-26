@@ -1,8 +1,8 @@
 # SIMPLify-x Instalation Guide
 
 * [SMPLify-x](#smplify-x)
-* [PyTorch](#pytorch)
 * [SMPL-X](#smpl-x)
+* [PyTorch](#pytorch)
 * [VPoser](#vposer)
 * [Homogenus](#homogenus)
 * [OpenPose](#openpose)
@@ -12,8 +12,33 @@ Just clone SMPLify-x from [repo](https://github.com/vchoutas/smplify-x)
 
 `git clone https://github.com/vchoutas/smplify-x.git`
 
-## SMPL-X
+## PyTorch
+[Link to original](https://pytorch.org/get-started/locally/)
 
+At first we need to install `conda`, just use [this](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) guide.
+
+`conda install pytorch torchvision cudatoolkit=10.2 -c pytorch`
+
+## SMPL-X
+[Link to original](https://github.com/vchoutas/smplx)
+
+To install the model please follow the next steps in the specified order:
+
+To install from PyPi simply run:
+
+`pip install smplx[all]`
+
+Clone this repository and install it using the `setup.py` script:
+
+`git clone https://github.com/vchoutas/smplx
+python setup.py install
+`
+
+To download the SMPL-X model go to [this project website](https://smpl-x.is.tue.mpg.de/) and register to get access to the downloads section.
+
+To download the SMPL+H model go to [this project website](http://mano.is.tue.mpg.de/) and register to get access to the downloads section.
+
+To download the SMPL model go to [this](http://smpl.is.tue.mpg.de/) (male and female models) and [this](http://smplify.is.tue.mpg.de/) (gender neutral model) project website and register to get access to the downloads section.
 
 ## OpenPose
 To install openPose from docker image:
@@ -69,6 +94,3 @@ wget https://github.com/foss-for-synopsys-dwc-arc-processors/synopsys-caffe-mode
 Ваше вновь созданное изображение теперь должно быть доступно в списке локальных изображений. Вы можете проверить, проверив список изображений снова:
 
 `sudo docker images`
-
-[^1]: Все сноски отображаются в конце страницы
-[^2]: Просто не так ли?)

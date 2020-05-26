@@ -14,14 +14,18 @@ Just clone SMPLify-x from [repo](https://github.com/vchoutas/smplify-x)
 
 `git clone https://github.com/vchoutas/smplify-x.git`
 
-## PyTorch [go up](#Table-of-contents)
+## PyTorch
+[go up](#Table-of-contents)
+
 [Link to original](https://pytorch.org/get-started/locally/)
 
 At first we need to install `conda`, just use [this](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html) guide.
 
 `conda install pytorch torchvision cudatoolkit=10.2 -c pytorch`
 
-## VPoser [go up](#Table-of-contents)
+## VPoser
+[go up](#Table-of-contents)
+
 [Link to original](https://github.com/nghorbani/human_body_prior)
 
 **Requirements**
@@ -42,11 +46,11 @@ pip install git+https://github.com/nghorbani/human_body_prior
 If you want to use the feature to [Disentangle Self-Intersecting Poses](https://github.com/nghorbani/human_body_prior/tree/master/human_body_prior/body_model#disentangling-self-intersecting-novel-poses)
 please install the optional package [mesh_intersection](https://github.com/vchoutas/torch-mesh-isect).
 
-## Loading Trained Models
+### Loading Trained Models
 
 To download the trained *VPoser*  models go to the [SMPL-X project website](https://smpl-x.is.tue.mpg.de/) and register to get access to the downloads section. Afterwards, you can follow the [model loading tutorial](notebooks/vposer_poZ.ipynb) to load and use your trained VPoser models.
 
-## Train VPoser
+### Train VPoser
 We train VPoser, using a [variational autoencoder](https://arxiv.org/abs/1312.6114)
 that learns a latent representation of human pose and regularizes the distribution of the latent code to be a normal distribution.
 We train our prior on data from the [AMASS](https://amass.is.tue.mpg.de/) dataset; 

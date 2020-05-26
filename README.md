@@ -7,7 +7,9 @@
 * [Homogenus](#homogenus)
 * [OpenPose](#openpose)
 
-## SMPLify-x [go up](#Table-of-contents)
+## SMPLify-x
+[go up](#Table-of-contents)
+
 Just clone SMPLify-x from [repo](https://github.com/vchoutas/smplify-x)
 
 `git clone https://github.com/vchoutas/smplify-x.git`
@@ -52,7 +54,9 @@ specifically, the SMPL pose parameters of various publicly available human motio
 You can follow the [data preparation tutorial](human_body_prior/data/README.md) to learn how to download and prepare AMASS for VPoser.
 Afterwards, you can [train VPoser from scratch](human_body_prior/train/README.md). 
 
-## SMPL-X [go up](#Table-of-contents)
+## SMPL-X
+[go up](#Table-of-contents)
+
 [Link to original](https://github.com/vchoutas/smplx)
 
 To install the model please follow the next steps in the specified order:
@@ -73,7 +77,9 @@ To download the SMPL+H model go to [this project website](http://mano.is.tue.mpg
 
 To download the SMPL model go to [this](http://smpl.is.tue.mpg.de/) (male and female models) and [this](http://smplify.is.tue.mpg.de/) (gender neutral model) project website and register to get access to the downloads section.
 
-## OpenPose [go up](#Table-of-contents)
+## OpenPose
+[go up](#Table-of-contents)
+
 To install openPose from docker image:
 1. [Install nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-docker#ubuntu-160418042004-debian-jessiestretchbuster)
 2. [Install nvidia-docker 2.0](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0))

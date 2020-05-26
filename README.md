@@ -34,13 +34,9 @@ Processing images:
  ./build/examples/openpose/openpose.bin --image_dir ./data --display 0 --write_json ./data/result --write_images ./data/result --face --hand
 
 ```
+Сноски и примечания[^1] задаются так[^2]:
 
-Supports - 
-1. CUDA 10
-2. CUDnn 7
-3. Python 3 (will be 3.7 soon)
-
-Here is the steps, to download COCO model, and save docker image ([how-to-commit-changes-to-docker-image](https://phoenixnap.com/kb/how-to-commit-changes-to-docker-image)):
+Here is the steps, to download COCO (по-умолча) model, and save docker image ([how-to-commit-changes-to-docker-image](https://phoenixnap.com/kb/how-to-commit-changes-to-docker-image)):
 * run container: `docker run -it --runtime=nvidia exsidius/openpose`
 * install wget: `apt-get install wget`
 * go to folder, and download COCO-model:
@@ -60,3 +56,6 @@ wget https://github.com/foss-for-synopsys-dwc-arc-processors/synopsys-caffe-mode
 Где *c0d4c6800b5d* находится **идентификатор КОНТЕЙНЕРА** и **openpose** имя нового Image.
 * Ваше вновь созданное изображение теперь должно быть доступно в списке локальных изображений. Вы можете проверить, проверив список изображений снова:
 `sudo docker images`
+
+[^1]: Все сноски отображаются в конце страницы
+[^2]: Просто не так ли?)
